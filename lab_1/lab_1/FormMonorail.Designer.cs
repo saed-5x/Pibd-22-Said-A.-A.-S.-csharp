@@ -56,7 +56,7 @@
             this.buttonRight.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonRight.FlatAppearance.BorderSize = 0;
             this.buttonRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRight.Location = new System.Drawing.Point(1251, 532);
+            this.buttonRight.Location = new System.Drawing.Point(1696, 882);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(64, 64);
             this.buttonRight.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.buttonDown.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonDown.FlatAppearance.BorderSize = 0;
             this.buttonDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDown.Location = new System.Drawing.Point(1181, 532);
+            this.buttonDown.Location = new System.Drawing.Point(1626, 882);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(64, 64);
             this.buttonDown.TabIndex = 1;
@@ -86,7 +86,7 @@
             this.buttonLeft.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonLeft.FlatAppearance.BorderSize = 0;
             this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLeft.Location = new System.Drawing.Point(1111, 532);
+            this.buttonLeft.Location = new System.Drawing.Point(1556, 882);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(64, 64);
             this.buttonLeft.TabIndex = 1;
@@ -103,7 +103,7 @@
             this.buttonUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUp.Location = new System.Drawing.Point(1181, 462);
+            this.buttonUp.Location = new System.Drawing.Point(1626, 812);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(64, 64);
             this.buttonUp.TabIndex = 1;

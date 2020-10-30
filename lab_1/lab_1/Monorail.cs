@@ -91,10 +91,14 @@ namespace WindowsFormsMonorail
 
             Brush monorail = new SolidBrush(DopColor);
             Brush wire = new SolidBrush(Color.Black);
+            Brush door = new SolidBrush(DopColor);
+            Brush clip = new SolidBrush(Color.RoyalBlue);
+            Brush window = new SolidBrush(Windows);
+            Brush body = new SolidBrush(MainColor);
+            Brush strip = new SolidBrush(MainColor);
 
-            g.FillRectangle(wire, _startPosX + 30 , _startPosY - 15 , 5, 20);
-            g.FillRectangle(wire, _startPosX + 100, _startPosY - 15, 5, 20);
-            g.FillRectangle(wire, _startPosX - 40, _startPosY - 25, 250, 20);
+
+            g.FillRectangle(wire, _startPosX - 400, _startPosY + 50, 600, 20);
 
             g.FillRectangle(monorail, _startPosX-30, _startPosY, 180, 60);
             g.FillEllipse(monorail, _startPosX+120, _startPosY, 60, 50);
@@ -103,7 +107,7 @@ namespace WindowsFormsMonorail
             if (Window)
             {
               //  g.DrawRectangle(pen, _startPosX, _startPosY + 10, 90, 20);
-                Brush window = new SolidBrush(Windows);
+               
                  g.FillRectangle(window, _startPosX - 20, _startPosY + 10, 40, 20);
                  g.FillRectangle(window, _startPosX + 30, _startPosY + 10, 40, 20);
                  g.FillRectangle(window, _startPosX + 80, _startPosY + 10, 40, 20);
@@ -114,12 +118,9 @@ namespace WindowsFormsMonorail
             {
 
             //    g.DrawRectangle(pen, _startPosX, _startPosY + 35, 90, 10);
-                Brush strip = new SolidBrush(MainColor);
+                
              //   g.FillRectangle(strip, _startPosX, _startPosY + 35, 90, 10);
-
-
-
-               
+              
                 g.FillRectangle(strip, _startPosX -30 , _startPosY + 35, 220, 12);
                 g.FillEllipse(strip, _startPosX + 180, _startPosY + 35, 20, 12);
             }
@@ -127,9 +128,61 @@ namespace WindowsFormsMonorail
             {
 
 
-                Brush door = new SolidBrush(MainColor);
 
-                g.FillRectangle(door, _startPosX - 100, _startPosY, 10,60 );
+
+                g.FillRectangle(clip, _startPosX - 55, _startPosY+5, 25, 55);
+                g.FillRectangle(door, _startPosX - 150, _startPosY, 105,60 );
+
+
+                g.FillRectangle(body, _startPosX - 150, _startPosY + 35, 105, 12);
+
+                g.FillRectangle(window, _startPosX - 115, _startPosY + 10, 30, 45);
+
+               
+
+
+
+
+
+
+            }
+            if (Door_2)
+            {
+
+
+
+
+                g.FillRectangle(clip, _startPosX - 55 - 120, _startPosY + 5, 25, 55);
+                g.FillRectangle(door, _startPosX - 150 -120, _startPosY, 105, 60);
+
+                g.FillRectangle(body, _startPosX - 150 -120, _startPosY + 35, 105, 12);
+
+                g.FillRectangle(window, _startPosX - 115 -120, _startPosY + 10, 30, 45);
+
+                
+
+
+
+
+
+
+            }
+            if (Door_3)
+            {
+
+
+
+                g.FillRectangle(clip, _startPosX - 55 -240, _startPosY + 5, 25, 55);
+                g.FillRectangle(door, _startPosX - 150 -240, _startPosY, 105, 60);
+
+                g.FillRectangle(body, _startPosX - 150 - 240, _startPosY + 35, 105, 12);
+
+                g.FillRectangle(window, _startPosX - 115 - 240, _startPosY + 10, 30, 45);
+
+               
+
+
+
 
 
 
