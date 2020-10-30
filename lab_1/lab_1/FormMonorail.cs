@@ -43,7 +43,7 @@ namespace lab_1
         private void button_Create_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            monorail = new Monorail(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.DodgerBlue, Color.White, true, true,true,true,true);
+            monorail = new Monorail(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.DodgerBlue, Color.White, true, true,true);
             monorail.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBox1.Width, pictureBox1.Height);
             Draw();
         }
