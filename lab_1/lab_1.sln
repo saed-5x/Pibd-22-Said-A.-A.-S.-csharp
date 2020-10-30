@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_1", "lab_1\lab_1.csproj", "{692AD52C-0B20-4081-BF81-8F4BCC8B6874}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsMonorail", "lab_1\WindowsFormsMonorail.csproj", "{692AD52C-0B20-4081-BF81-8F4BCC8B6874}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
