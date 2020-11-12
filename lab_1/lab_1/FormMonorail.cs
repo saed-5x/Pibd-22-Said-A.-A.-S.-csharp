@@ -33,7 +33,7 @@ namespace lab_1
             monorail.DrawMonorail(gr);
             pictureBox1.Image = bmp;
         }
-        /// <summary>
+        /// <summary>///
         /// Обработка нажатия кнопки "Создать"
         /// </summary>
         /// <param name="sender"></param>
