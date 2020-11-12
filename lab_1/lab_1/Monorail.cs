@@ -124,7 +124,6 @@ namespace WindowsFormsMonorail
 
             g.FillRectangle(strip, _startPosX - 150, _startPosY + 35, 105, 12);
 
-
             if (Doors)
             {
                 Brush door1 = new SolidBrush(Color.Green);
