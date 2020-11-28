@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonorail));
-            this.button_Create = new System.Windows.Forms.Button();
+            this.button_Create_Monorail = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PicBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // button_Create
+            // button_Create_Monorail
             // 
-            this.button_Create.Location = new System.Drawing.Point(36, 21);
-            this.button_Create.Name = "button_Create";
-            this.button_Create.Size = new System.Drawing.Size(115, 43);
-            this.button_Create.TabIndex = 0;
-            this.button_Create.Text = "Create";
-            this.button_Create.UseVisualStyleBackColor = true;
-            this.button_Create.Click += new System.EventHandler(this.button_Create_Click);
+            this.button_Create_Monorail.Location = new System.Drawing.Point(36, 21);
+            this.button_Create_Monorail.Name = "button_Create_Monorail";
+            this.button_Create_Monorail.Size = new System.Drawing.Size(195, 43);
+            this.button_Create_Monorail.TabIndex = 0;
+            this.button_Create_Monorail.Text = "Monorail";
+            this.button_Create_Monorail.UseVisualStyleBackColor = true;
+            this.button_Create_Monorail.Click += new System.EventHandler(this.buttonCreateMonorail_Click);
             // 
             // buttonRight
             // 
@@ -110,13 +110,13 @@
             this.buttonUp.UseVisualStyleBackColor = false;
             this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // pictureBox1
+            // PicBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1920, 1080);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.PicBox.Location = new System.Drawing.Point(1, 0);
+            this.PicBox.Name = "PicBox";
+            this.PicBox.Size = new System.Drawing.Size(1920, 1080);
+            this.PicBox.TabIndex = 1;
+            this.PicBox.TabStop = false;
             // 
             // FormMonorail
             // 
@@ -128,11 +128,11 @@
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.button_Create);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.button_Create_Monorail);
+            this.Controls.Add(this.PicBox);
             this.Name = "FormMonorail";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -140,8 +140,8 @@
         #endregion
 
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button_Create;
+        private System.Windows.Forms.PictureBox PicBox;
+        private System.Windows.Forms.Button button_Create_Monorail;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;

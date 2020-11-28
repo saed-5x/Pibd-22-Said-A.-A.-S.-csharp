@@ -28,10 +28,10 @@ namespace lab_1
         /// </summary>
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Bitmap bmp = new Bitmap(PicBox.Width, PicBox.Height);
             Graphics gr = Graphics.FromImage(bmp);
             monorail.DrawMonorail(gr);
-            pictureBox1.Image = bmp;
+            PicBox.Image = bmp;
         }
         /// <summary>///
         /// Обработка нажатия кнопки "Создать"
@@ -40,13 +40,14 @@ namespace lab_1
         /// <param name="e"></param>
         /// 
 
-        private void button_Create_Click(object sender, EventArgs e)
+        private void buttonCreateMonorail_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            monorail = new Monorail(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.DodgerBlue, Color.White, true, true,true);
-            monorail.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBox1.Width, pictureBox1.Height);
+            monorail = new Monorail(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.DodgerBlue, Color.Red, Color.White, true, true);
+            monorail.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), PicBox.Width, PicBox.Height);
             Draw();
         }
+
 
         /// <summary>
         /// Обработка нажатия кнопок управления
@@ -60,23 +61,20 @@ namespace lab_1
             switch (name)
             {
                 case "buttonUp":
-                    monorail.MoveTransport(Direction.Up);
+                    monorail.MoveMonorail(Direction.Up);
                     break;
                 case "buttonDown":
-                    monorail.MoveTransport(Direction.Down);
+                    monorail.MoveMonorail(Direction.Down);
                     break;
                 case "buttonLeft":
-                    monorail.MoveTransport(Direction.Left);
+                    monorail.MoveMonorail(Direction.Left);
                     break;
                 case "buttonRight":
-                    monorail.MoveTransport(Direction.Right);
+                    monorail.MoveMonorail(Direction.Right);
                     break;
             }
             Draw();
         }
 
-      
-
-  
     }
 }
