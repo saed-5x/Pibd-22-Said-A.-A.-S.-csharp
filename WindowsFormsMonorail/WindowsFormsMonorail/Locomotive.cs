@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace lab_1
 {
+
     public class Locomotive : Vehicle
     {
-        protected const int MonorailWidth = 200;
+        protected const int MonorailWidth = 400;
         protected const int MonorailHeight = 150;
+
         public Locomotive(int maxSpeed, float weight, Color bodycolor, Color sidestrip, bool window, bool doors, bool railway)
         {
             MaxSpeed = maxSpeed;
@@ -26,35 +28,37 @@ namespace lab_1
             float step = MaxSpeed * 200 / Weight;
             switch (direction)
             {
+             
                 case Direction.Right:
-                    if (Xstart + step < PicWidth - MonorailWidth)
+                    if (Xstart + step < PicMonorsilWidth + MonorailWidth)
                     {
                         Xstart += step;
                     }
                     break;
-
+            
                 case Direction.Left:
-                    if (Xstart - step > MonorailWidth + 150)
+                    if (Xstart - step > MonorailWidth)
                     {
                         Xstart -= step;
                     }
                     break;
-
+              
                 case Direction.Up:
                     if (Ystart - step > 0)
                     {
                         Ystart -= step;
                     }
                     break;
-
+               
                 case Direction.Down:
-                    if (Ystart + step < PicHeight - MonorailHeight)
+                    if (Ystart + step < PicMonorailHeight - MonorailHeight)
                     {
                         Ystart += step;
                     }
                     break;
             }
         }
+
         public override void DrawMonorail(Graphics g)
         {
             Pen pen = new Pen(Color.Black);

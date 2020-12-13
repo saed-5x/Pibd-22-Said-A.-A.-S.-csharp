@@ -11,37 +11,66 @@ using WindowsFormsMonorail;
 
 namespace lab_1
 {
-
     public partial class FormDepot : Form
     {
 
-        private readonly Depot<ITransport> depot;
+        private readonly DepotCollection depotCollection;
         public FormDepot()
         {
             InitializeComponent();
-            depot = new Depot<ITransport>( 20,PicBoxStation.Width,PicBoxStation.Height);
+            depotCollection = new DepotCollection(PicBoxStation.Width,PicBoxStation.Height);
             Draw();
+        }
+
+        private void ReloadLevels()
+        {
+            int index = ListBoxDepot.SelectedIndex;
+            ListBoxDepot.Items.Clear();
+            for (int i = 0; i < depotCollection.Keys.Count; i++)
+            {
+                ListBoxDepot.Items.Add(depotCollection.Keys[i]);
+            }
+            if (ListBoxDepot.Items.Count > 0 && (index == -1 || index >= ListBoxDepot.Items.Count))
+            {
+                ListBoxDepot.SelectedIndex = 0;
+            }
+            else if (ListBoxDepot.Items.Count > 0 && index > -1 && index < ListBoxDepot.Items.Count)
+            {
+                ListBoxDepot.SelectedIndex = index;
+            }
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(PicBoxStation.Width, PicBoxStation.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            depot.Draw(gr);
-            PicBoxStation.Image = bmp;
+            if (ListBoxDepot.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(PicBoxStation.Width, PicBoxStation.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                depotCollection[ListBoxDepot.SelectedItem.ToString()].Draw(gr);
+                PicBoxStation.Image = bmp;
+            }
         }
 
         private void ParkingMonorail_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (ListBoxDepot.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var train = new Monorail(100, 1000,dialog.Color, dialogDop.Color,true, true, false);
-                    bool Depot = depot + train;
-                    Draw();
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var train = new Monorail(100, 1000,dialog.Color, dialogDop.Color, true, true,false);
+                        if (depotCollection[ListBoxDepot.SelectedItem.ToString()] + train)
+                        {
+                            Draw();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
         }
@@ -49,16 +78,25 @@ namespace lab_1
         private void ParkingLocomotive_Click(object sender, EventArgs e)
         {
 
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (ListBoxDepot.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-
-                    var train = new Locomotive(100, 1000, dialog.Color, dialogDop.Color, true, true, true);
-                    bool Depot = depot + train;
-                    Draw();
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var train = new Locomotive(100, 1000,  dialog.Color, dialogDop.Color, true, true,true);
+                      
+                        if (depotCollection[ListBoxDepot.SelectedItem.ToString()] + train)
+                        {
+                            Draw();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
 
@@ -66,25 +104,46 @@ namespace lab_1
 
         private void buttonTake_Click(object sender, EventArgs e)
         {
-            if (MaskTexBoxTrainStation.Text != "")
+            if (ListBoxDepot.SelectedIndex > -1 && MaskTexBoxTrainStation.Text != "")
             {
-                var train = depot - Convert.ToInt32(MaskTexBoxTrainStation.Text);
+                var train = depotCollection[ListBoxDepot.SelectedItem.ToString()] - Convert.ToInt32(MaskTexBoxTrainStation.Text);
                 if (train != null)
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTake.Width,
-                   pictureBoxTake.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    train.SetPosition(370, 5, pictureBoxTake.Width,pictureBoxTake.Height);
-                    train.DrawMonorail(gr);
-                    pictureBoxTake.Image = bmp;
-                }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTake.Width,pictureBoxTake.Height);
-                    pictureBoxTake.Image = bmp;
+                    FormMonorail form = new FormMonorail();
+                    form.SetTrain(train);
+                    form.ShowDialog();
                 }
                 Draw();
             }
         }
+
+        private void buttonDelDepot_Click(object sender, EventArgs e)
+        {
+            if (ListBoxDepot.SelectedIndex > -1)
+            {
+                if (MessageBox.Show($"Удалить парковку {ListBoxDepot.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    depotCollection.DelParking(TextBoxStationName.Text);
+                    ReloadLevels();
+                }
+            }
+        }
+
+        private void buttonAddDepot_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TextBoxStationName.Text))
+            {
+                MessageBox.Show("Введите название парковки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            depotCollection.AddParking(TextBoxStationName.Text);
+            ReloadLevels();
+        }
+
+        private void ListBoxDepot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
+
     }
 }
