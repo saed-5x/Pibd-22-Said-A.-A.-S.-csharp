@@ -13,5 +13,4 @@ namespace lab_1
         Left,
         Right
     }
-
 }
