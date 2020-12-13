@@ -1,18 +1,16 @@
-﻿using lab_1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsMonorail
+namespace lab_1
 {
     public class Locomotive : Vehicle
     {
         protected const int MonorailWidth = 200;
         protected const int MonorailHeight = 150;
-
         public Locomotive(int maxSpeed, float weight, Color bodycolor, Color sidestrip, bool window, bool doors, bool railway)
         {
             MaxSpeed = maxSpeed;
@@ -27,28 +25,28 @@ namespace WindowsFormsMonorail
         {
             float step = MaxSpeed * 200 / Weight;
             switch (direction)
-            {    
+            {
                 case Direction.Right:
                     if (Xstart + step < PicWidth - MonorailWidth)
                     {
                         Xstart += step;
                     }
                     break;
-                
+
                 case Direction.Left:
-                    if (Xstart - step > MonorailWidth+150)
+                    if (Xstart - step > MonorailWidth + 150)
                     {
                         Xstart -= step;
                     }
                     break;
-                
+
                 case Direction.Up:
                     if (Ystart - step > 0)
                     {
                         Ystart -= step;
                     }
                     break;
-                
+
                 case Direction.Down:
                     if (Ystart + step < PicHeight - MonorailHeight)
                     {
@@ -57,7 +55,6 @@ namespace WindowsFormsMonorail
                     break;
             }
         }
-
         public override void DrawMonorail(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
@@ -89,10 +86,10 @@ namespace WindowsFormsMonorail
                     g.FillRectangle(railway, Xstart - (430 - l / resize), Ystart + (70 / resize), 60 / resize, 4 / resize);
                 }
             }
-         
+
             g.FillRectangle(Locomotive, Xstart - (30 / resize), Ystart, 80 / resize, 60 / resize);
             g.FillRectangle(Locomotive, Xstart + (120 / resize), Ystart + (20 / resize), 10 / resize, 50 / resize);
-            g.FillRectangle(Locomotive, Xstart + (100 / resize), Ystart , 20 / resize, 20 / resize);
+            g.FillRectangle(Locomotive, Xstart + (100 / resize), Ystart, 20 / resize, 20 / resize);
             g.FillRectangle(Locomotive, Xstart + (30 / resize), Ystart + (20 / resize), 100 / resize, 40 / resize);
             g.FillRectangle(clip, Xstart - (55 / resize), Ystart + (5 / resize), 25 / resize, 55 / resize);
             g.FillRectangle(clip, Xstart - (166 / resize), Ystart + (5 / resize), 25 / resize, 55 / resize);
@@ -120,13 +117,11 @@ namespace WindowsFormsMonorail
                 g.FillRectangle(door3, Xstart - (355 / resize), Ystart + (10 / resize), 30 / resize, 45 / resize);
                 g.DrawRectangle(pen, Xstart - (340 / resize), Ystart + (10 / resize), 15 / resize, 45 / resize);
             }
-
             if (Window)
             {
                 g.DrawRectangle(pen, Xstart - (20 / resize), Ystart + (10 / resize), 40 / resize, 20 / resize);
                 g.FillRectangle(window, Xstart - (20 / resize), Ystart + (10 / resize), 40 / resize, 20 / resize);
             }
-
         }
     }
     

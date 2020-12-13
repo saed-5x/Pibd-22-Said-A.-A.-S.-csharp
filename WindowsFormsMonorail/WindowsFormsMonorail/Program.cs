@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsMonorail
+namespace lab_1
 {
     static class Program
     {
@@ -13,7 +13,7 @@ namespace WindowsFormsMonorail
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMonorail());
+            Application.Run(new FormDepot());
         }
     }
 }

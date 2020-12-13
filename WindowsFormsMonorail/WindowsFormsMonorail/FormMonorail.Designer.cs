@@ -1,8 +1,8 @@
-﻿namespace WindowsFormsMonorail
+﻿namespace lab_1
 {
     partial class FormMonorail
     {
-
+  
         private System.ComponentModel.IContainer components = null;
 
         protected override void Dispose(bool disposing)
@@ -16,33 +16,17 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonorail));
-            this.buttonCreateMonorail = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonCreateLocomotive = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PicBoxMonorail = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxMonorail)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonCreateMonorail
-            // 
-            this.buttonCreateMonorail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCreateMonorail.Location = new System.Drawing.Point(36, 21);
-            this.buttonCreateMonorail.Name = "buttonCreateMonorail";
-            this.buttonCreateMonorail.Size = new System.Drawing.Size(200, 43);
-            this.buttonCreateMonorail.TabIndex = 0;
-            this.buttonCreateMonorail.Text = "Monorail";
-            this.buttonCreateMonorail.UseVisualStyleBackColor = true;
-            this.buttonCreateMonorail.Click += new System.EventHandler(this.buttonCreateMonorail_Click);
             // 
             // buttonRight
             // 
@@ -106,24 +90,14 @@
             this.buttonUp.UseVisualStyleBackColor = false;
             this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // pictureBox1
+            // PicBoxMonorail
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1920, 1080);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // buttonCreateLocomotive
-            // 
-            this.buttonCreateLocomotive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCreateLocomotive.Location = new System.Drawing.Point(316, 21);
-            this.buttonCreateLocomotive.Name = "buttonCreateLocomotive";
-            this.buttonCreateLocomotive.Size = new System.Drawing.Size(207, 47);
-            this.buttonCreateLocomotive.TabIndex = 2;
-            this.buttonCreateLocomotive.Text = "Locomotive";
-            this.buttonCreateLocomotive.UseVisualStyleBackColor = true;
-            this.buttonCreateLocomotive.Click += new System.EventHandler(this.buttonCreateLocomotive_Click);
+            this.PicBoxMonorail.Location = new System.Drawing.Point(-2, -4);
+            this.PicBoxMonorail.Name = "PicBoxMonorail";
+            this.PicBoxMonorail.Size = new System.Drawing.Size(1908, 1033);
+            this.PicBoxMonorail.TabIndex = 1;
+            this.PicBoxMonorail.TabStop = false;
+ 
             // 
             // FormMonorail
             // 
@@ -131,29 +105,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.buttonCreateLocomotive);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonCreateMonorail);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PicBoxMonorail);
             this.Name = "FormMonorail";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxMonorail)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button buttonCreateMonorail;
+        private System.Windows.Forms.PictureBox PicBoxMonorail;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;
-        private System.Windows.Forms.Button buttonCreateLocomotive;
     }
 }
 
