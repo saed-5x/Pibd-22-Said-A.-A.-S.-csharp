@@ -1,12 +1,11 @@
-﻿using lab_1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsMonorail
+namespace lab_1
 {
     public abstract class Vehicle : ITransport
     {
@@ -21,6 +20,7 @@ namespace WindowsFormsMonorail
         public bool Window { protected set; get; }
         public bool Doors { protected set; get; }
         public bool Railway { protected set; get; }
+
         public void SetPosition(int x, int y, int width, int height)
         {
             Xstart = x;

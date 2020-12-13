@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using lab_1;
+
 
 namespace WindowsFormsMonorail
 {
@@ -19,7 +21,6 @@ namespace WindowsFormsMonorail
             Doors = doors;
             Railway = railway;
         }
-
         public override void DrawMonorail(Graphics g)
         {
             Pen pen = new Pen(Color.Black);

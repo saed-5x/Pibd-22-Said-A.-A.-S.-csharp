@@ -1,5 +1,4 @@
-﻿using lab_1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsMonorail;
 
-namespace WindowsFormsMonorail
+namespace lab_1
 {
     public partial class FormMonorail : Form
     {
@@ -20,43 +20,37 @@ namespace WindowsFormsMonorail
         }
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Bitmap bmp = new Bitmap(PicBoxMonorail.Width, PicBoxMonorail.Height);
             Graphics gr = Graphics.FromImage(bmp);
             monorail.DrawMonorail(gr);
-            pictureBox1.Image = bmp;
+            PicBoxMonorail.Image = bmp;
         }
+
+        public void SetTrain(ITransport monorail)
+        {
+            this.monorail = monorail;
+            Draw();
+            
+        }
+ 
         private void buttonMove_Click(object sender, EventArgs e)
         {
             string name = (sender as Button).Name;
             switch (name)
             {
                 case "buttonUp":
-                    monorail.MoveMonorail(Direction.Up);
+                    monorail?.MoveMonorail(Direction.Up);
                     break;
                 case "buttonDown":
-                    monorail.MoveMonorail(Direction.Down);
+                    monorail?.MoveMonorail(Direction.Down);
                     break;
                 case "buttonLeft":
-                    monorail.MoveMonorail(Direction.Left);
+                    monorail?.MoveMonorail(Direction.Left);
                     break;
                 case "buttonRight":
-                    monorail.MoveMonorail(Direction.Right);
+                    monorail?.MoveMonorail(Direction.Right);
                     break;
             }
-            Draw();
-        }
-        private void buttonCreateLocomotive_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            monorail = new Locomotive(rnd.Next(150, 300), rnd.Next(1000, 2000), Color.Gold, Color.DarkGreen, true, true,true);
-            monorail.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBox1.Width, pictureBox1.Height);
-            Draw();
-        }
-        private void buttonCreateMonorail_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            monorail = new Monorail(rnd.Next(100, 300), rnd.Next(1000, 2000),Color.Gold, Color.DarkGreen,  true, true,false);
-            monorail.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBox1.Width, pictureBox1.Height);
             Draw();
         }
     }
