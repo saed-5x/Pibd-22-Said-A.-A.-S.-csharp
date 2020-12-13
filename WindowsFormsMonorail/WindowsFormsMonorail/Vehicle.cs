@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace lab_1
 {
@@ -11,8 +6,8 @@ namespace lab_1
     {
         protected float Xstart;
         protected float Ystart;
-        protected int PicWidth;
-        protected int PicHeight;
+        protected int PicMonorsilWidth;
+        protected int PicMonorailHeight;
         public int MaxSpeed { protected set; get; }
         public float Weight { protected set; get; }
         public Color BodyColor { protected set; get; }
@@ -25,8 +20,8 @@ namespace lab_1
         {
             Xstart = x;
             Ystart = y;
-            PicWidth = width;
-            PicHeight = height;
+            PicMonorsilWidth = width;
+            PicMonorailHeight = height;
         }
         public abstract void DrawMonorail(Graphics g);
         public abstract void MoveMonorail(Direction direction);

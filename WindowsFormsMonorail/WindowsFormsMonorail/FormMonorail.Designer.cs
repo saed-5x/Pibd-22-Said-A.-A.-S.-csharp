@@ -2,9 +2,15 @@
 {
     partial class FormMonorail
     {
-  
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -16,7 +22,10 @@
 
         #region Windows Form Designer generated code
 
-
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonorail));
@@ -96,9 +105,7 @@
             this.PicBoxMonorail.Name = "PicBoxMonorail";
             this.PicBoxMonorail.Size = new System.Drawing.Size(1908, 1033);
             this.PicBoxMonorail.TabIndex = 1;
-            this.PicBoxMonorail.TabStop = false;
- 
-            // 
+            this.PicBoxMonorail.TabStop = false;            // 
             // FormMonorail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +125,7 @@
         }
 
         #endregion
+
 
         private System.Windows.Forms.PictureBox PicBoxMonorail;
         private System.Windows.Forms.Button buttonRight;

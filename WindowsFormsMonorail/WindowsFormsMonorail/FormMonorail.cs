@@ -18,6 +18,7 @@ namespace lab_1
         {
             InitializeComponent();
         }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(PicBoxMonorail.Width, PicBoxMonorail.Height);
@@ -32,7 +33,7 @@ namespace lab_1
             Draw();
             
         }
- 
+
         private void buttonMove_Click(object sender, EventArgs e)
         {
             string name = (sender as Button).Name;
@@ -53,5 +54,6 @@ namespace lab_1
             }
             Draw();
         }
+
     }
 }
