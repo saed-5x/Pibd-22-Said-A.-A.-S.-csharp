@@ -39,7 +39,6 @@ namespace lab_1
                 ListBoxDepot.SelectedIndex = index;
             }
         }
-/*all is well*/
         private void Draw()
         {
             if (ListBoxDepot.SelectedIndex > -1)
