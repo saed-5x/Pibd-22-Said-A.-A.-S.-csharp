@@ -12,5 +12,6 @@ namespace lab_1
         void SetPosition(int x, int y, int width, int height);
         void MoveMonorail(Direction direction);
         void DrawMonorail(Graphics g);
+        void SetMainColor(Color color);
     }
 }

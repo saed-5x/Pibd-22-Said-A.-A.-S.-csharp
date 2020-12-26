@@ -105,7 +105,9 @@
             this.PicBoxMonorail.Name = "PicBoxMonorail";
             this.PicBoxMonorail.Size = new System.Drawing.Size(1908, 1033);
             this.PicBoxMonorail.TabIndex = 1;
-            this.PicBoxMonorail.TabStop = false;            // 
+            this.PicBoxMonorail.TabStop = false;
+            
+            // 
             // FormMonorail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

@@ -53,5 +53,9 @@ namespace WindowsFormsMonorail
                 g.FillEllipse(window, Xstart + 140 / resize, Ystart + 10 / resize, 30 / resize, 20 / resize);
             }
         }
+        public void SetSubColor(Color color)
+        {
+            SideStrip = color;
+        }
     }
- }
+}

@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.PicBoxStation = new System.Windows.Forms.PictureBox();
-            this.ParkingLocomotive = new System.Windows.Forms.Button();
-            this.ParkingMonorail = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxTake = new System.Windows.Forms.PictureBox();
             this.Take = new System.Windows.Forms.Button();
             this.MaskTexBoxTrainStation = new System.Windows.Forms.TextBox();
             this.buttonAddStation = new System.Windows.Forms.Button();
-            this.ListBoxDepot = new System.Windows.Forms.ListBox();
+            this.ListBoxStation = new System.Windows.Forms.ListBox();
             this.TextBoxStationName = new System.Windows.Forms.TextBox();
             this.buttonDelStation = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonSetMonorail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxStation)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
             this.SuspendLayout();
             // 
             // PicBoxStation
@@ -51,26 +52,6 @@
             this.PicBoxStation.Size = new System.Drawing.Size(1339, 1027);
             this.PicBoxStation.TabIndex = 0;
             this.PicBoxStation.TabStop = false;
-            // 
-            // ParkingLocomotive
-            // 
-            this.ParkingLocomotive.Location = new System.Drawing.Point(1349, 560);
-            this.ParkingLocomotive.Name = "ParkingLocomotive";
-            this.ParkingLocomotive.Size = new System.Drawing.Size(543, 56);
-            this.ParkingLocomotive.TabIndex = 1;
-            this.ParkingLocomotive.Text = "ParkingLocomotive";
-            this.ParkingLocomotive.UseVisualStyleBackColor = true;
-            this.ParkingLocomotive.Click += new System.EventHandler(this.ParkingLocomotive_Click);
-            // 
-            // ParkingMonorail
-            // 
-            this.ParkingMonorail.Location = new System.Drawing.Point(1349, 632);
-            this.ParkingMonorail.Name = "ParkingMonorail";
-            this.ParkingMonorail.Size = new System.Drawing.Size(544, 63);
-            this.ParkingMonorail.TabIndex = 2;
-            this.ParkingMonorail.Text = "ParkingMonorail";
-            this.ParkingMonorail.UseVisualStyleBackColor = true;
-            this.ParkingMonorail.Click += new System.EventHandler(this.ParkingMonorail_Click);
             // 
             // label2
             // 
@@ -84,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBoxTake);
             this.groupBox1.Controls.Add(this.Take);
             this.groupBox1.Controls.Add(this.MaskTexBoxTrainStation);
             this.groupBox1.Controls.Add(this.label2);
@@ -94,7 +76,15 @@
             this.groupBox1.Size = new System.Drawing.Size(543, 318);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = " Забрать машину";
+            this.groupBox1.Text = " Take Train";
+            // 
+            // pictureBoxTake
+            // 
+            this.pictureBoxTake.Location = new System.Drawing.Point(6, 136);
+            this.pictureBoxTake.Name = "pictureBoxTake";
+            this.pictureBoxTake.Size = new System.Drawing.Size(531, 160);
+            this.pictureBoxTake.TabIndex = 8;
+            this.pictureBoxTake.TabStop = false;
             // 
             // Take
             // 
@@ -122,18 +112,18 @@
             this.buttonAddStation.TabIndex = 7;
             this.buttonAddStation.Text = "AddStation";
             this.buttonAddStation.UseVisualStyleBackColor = true;
-            this.buttonAddStation.Click += new System.EventHandler(this.buttonAddDepot_Click);
+            this.buttonAddStation.Click += new System.EventHandler(this.buttonAddStation_Click);
             // 
-            // ListBoxDepot
+            // ListBoxStation
             // 
-            this.ListBoxDepot.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ListBoxDepot.FormattingEnabled = true;
-            this.ListBoxDepot.ItemHeight = 25;
-            this.ListBoxDepot.Location = new System.Drawing.Point(1349, 249);
-            this.ListBoxDepot.Name = "ListBoxDepot";
-            this.ListBoxDepot.Size = new System.Drawing.Size(541, 179);
-            this.ListBoxDepot.TabIndex = 8;
-            this.ListBoxDepot.SelectedIndexChanged += new System.EventHandler(this.ListBoxDepot_SelectedIndexChanged);
+            this.ListBoxStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ListBoxStation.FormattingEnabled = true;
+            this.ListBoxStation.ItemHeight = 25;
+            this.ListBoxStation.Location = new System.Drawing.Point(1349, 249);
+            this.ListBoxStation.Name = "ListBoxStation";
+            this.ListBoxStation.Size = new System.Drawing.Size(541, 179);
+            this.ListBoxStation.TabIndex = 8;
+            this.ListBoxStation.SelectedIndexChanged += new System.EventHandler(this.ListBoxStation_SelectedIndexChanged);
             // 
             // TextBoxStationName
             // 
@@ -152,36 +142,47 @@
             this.buttonDelStation.TabIndex = 10;
             this.buttonDelStation.Text = "Delete Station";
             this.buttonDelStation.UseVisualStyleBackColor = true;
-            this.buttonDelStation.Click += new System.EventHandler(this.buttonDelDepot_Click);
+            this.buttonDelStation.Click += new System.EventHandler(this.buttonDelStation_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1583, 32);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(1594, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 11;
             this.label1.Text = "Station Name";
             // 
-            // FormDepot
+            // buttonSetMonorail
+            // 
+            this.buttonSetMonorail.Location = new System.Drawing.Point(1349, 563);
+            this.buttonSetMonorail.Name = "buttonSetMonorail";
+            this.buttonSetMonorail.Size = new System.Drawing.Size(543, 141);
+            this.buttonSetMonorail.TabIndex = 12;
+            this.buttonSetMonorail.Text = "Add Train";
+            this.buttonSetMonorail.UseVisualStyleBackColor = true;
+            this.buttonSetMonorail.Click += new System.EventHandler(this.buttonSetTrain_Click);
+            // 
+            // FormTrainStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.buttonSetMonorail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDelStation);
             this.Controls.Add(this.TextBoxStationName);
-            this.Controls.Add(this.ListBoxDepot);
+            this.Controls.Add(this.ListBoxStation);
             this.Controls.Add(this.buttonAddStation);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ParkingMonorail);
-            this.Controls.Add(this.ParkingLocomotive);
             this.Controls.Add(this.PicBoxStation);
-            this.Name = "FormDepot";
+            this.Name = "FormTrainStation";
             this.Text = "FormParking";
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxStation)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,16 +191,16 @@
         #endregion
 
         private System.Windows.Forms.PictureBox PicBoxStation;
-        private System.Windows.Forms.Button ParkingLocomotive;
-        private System.Windows.Forms.Button ParkingMonorail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox MaskTexBoxTrainStation;
         private System.Windows.Forms.Button Take;
+        private System.Windows.Forms.PictureBox pictureBoxTake;
         private System.Windows.Forms.Button buttonAddStation;
-        private System.Windows.Forms.ListBox ListBoxDepot;
+        private System.Windows.Forms.ListBox ListBoxStation;
         private System.Windows.Forms.TextBox TextBoxStationName;
         private System.Windows.Forms.Button buttonDelStation;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonSetMonorail;
     }
 }
