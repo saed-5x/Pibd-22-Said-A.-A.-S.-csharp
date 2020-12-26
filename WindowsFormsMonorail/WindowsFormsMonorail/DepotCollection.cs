@@ -38,7 +38,7 @@ namespace lab_1
                 StationStages.Remove(name);
             }
         }
- 
+
         public Depot<Vehicle> this[string ind]
         {
             get

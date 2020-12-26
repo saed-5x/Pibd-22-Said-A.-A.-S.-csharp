@@ -13,22 +13,21 @@ namespace lab_1
         private readonly int MaxCount;
         private readonly int PictureWidth;
         private readonly int PictureHeight;
-        private readonly int PlaceWidth = 669;
-        private readonly int PlaceHeight = 100;
+        private readonly int DepotWidth = 669;
+        private readonly int DepotHeight = 100;
 
         public Depot( int picWidth, int picHeight)
         {
-            int width = picWidth/ PlaceWidth;
-            int height = picHeight / PlaceHeight;
-
-            MaxCount = width * height;
-            PictureWidth = picWidth;
-            PictureHeight = picHeight;
-            Places = new List<T>();
-            for (int i = 0; i < Places.Count; i++)
-            {
-                Places[i] = null;
-            }
+                int width = picWidth/ DepotWidth;
+                int height = picHeight / DepotHeight;
+                MaxCount = width * height;
+                PictureWidth = picWidth;
+                PictureHeight = picHeight;
+                Places = new List<T>();
+                for (int i = 0; i < Places.Count; i++)
+                {
+                    Places[i] = null;
+                }
         }
 
         public static bool operator +(Depot<T> trainStation, T train)
@@ -39,7 +38,6 @@ namespace lab_1
             }
             trainStation.Places.Add(train);
             return true;
-
         }
 
         public static T operator -(Depot<T> trainStation, int index)
@@ -50,7 +48,6 @@ namespace lab_1
             }
             T train = trainStation.Places[index];
             trainStation.Places.RemoveAt(index);
-
 
             return train;                     
         }
@@ -67,7 +64,7 @@ namespace lab_1
             {
                 if (!CheckFreeDepot(i))
                 {
-                Places[i].SetPosition(5 + i / 10 * PlaceWidth + 400, i % 10* PlaceHeight + 10, PictureWidth, PictureHeight);
+                Places[i].SetPosition(5 + i / 10 * DepotWidth + 400, i % 10* DepotHeight + 10, PictureWidth, PictureHeight);
                 Places[i].DrawMonorail(g);
                 }
             }
@@ -76,13 +73,13 @@ namespace lab_1
         private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
-            for (int i = 0; i < PictureWidth / PlaceWidth+1; i++)
+            for (int i = 0; i < PictureWidth / DepotWidth+1; i++)
             {
-                for (int j = 0; j < PictureHeight / PlaceHeight + 1; ++j)
+                for (int j = 0; j < PictureHeight / DepotHeight + 1; ++j)
                 {
-                    g.DrawLine(pen, i * PlaceWidth, j * PlaceHeight, i * PlaceWidth + PlaceWidth+50 , j * PlaceHeight);
+                    g.DrawLine(pen, i * DepotWidth, j * DepotHeight, i * DepotWidth + DepotWidth+50 , j * DepotHeight);
                 }
-                g.DrawLine(pen, i * PlaceWidth, 0, i * PlaceWidth, (PictureHeight / PlaceHeight) * PlaceHeight);
+                g.DrawLine(pen, i * DepotWidth, 0, i * DepotWidth, (PictureHeight / DepotHeight) * DepotHeight);
             }
         }
     }

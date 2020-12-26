@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace lab_1
 {
+    public delegate void Action<Vehicle>(Vehicle Locomotive);
     static class Program
     {
         [STAThread]
