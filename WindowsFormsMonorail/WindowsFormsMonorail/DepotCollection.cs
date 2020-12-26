@@ -12,7 +12,6 @@ namespace lab_1
         public List<string> Keys => StationStages.Keys.ToList();
 
         private readonly int PictureWidth;
-
         private readonly int PictureHeight;
 
         public DepotCollection(int pictureWidth, int pictureHeight)
@@ -31,6 +30,7 @@ namespace lab_1
 
             StationStages.Add(name, new Depot<Vehicle>(PictureWidth, PictureHeight));
         }
+
         public void DelParking(string name)
         {
             if (StationStages.ContainsKey(name))

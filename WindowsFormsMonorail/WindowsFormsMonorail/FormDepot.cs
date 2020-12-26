@@ -41,6 +41,7 @@ namespace lab_1
 
         private void Draw()
         {
+
             if (ListBoxStation.SelectedIndex > -1)
             {
                 Bitmap bmp = new Bitmap(PicBoxStation.Width, PicBoxStation.Height);
@@ -50,11 +51,13 @@ namespace lab_1
             }
         }
 
+
         private void buttonTake_Click(object sender, EventArgs e)
         {
             if (ListBoxStation.SelectedIndex > -1 && MaskTexBoxTrainStation.Text != "")
             {
                 var train = stationCollection[ListBoxStation.SelectedItem.ToString()] - Convert.ToInt32(MaskTexBoxTrainStation.Text);
+
                 if (train != null)
                 {
                     FormMonorail form = new FormMonorail();
@@ -63,8 +66,6 @@ namespace lab_1
                 }
                 Draw();
             }
-
-
         }
 
         private void buttonDelStation_Click(object sender, EventArgs e)
@@ -78,6 +79,7 @@ namespace lab_1
                 }
             }
         }
+
 
         private void buttonAddStation_Click(object sender, EventArgs e)
         {

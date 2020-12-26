@@ -48,9 +48,10 @@ namespace lab_1
             }
             T train = trainStation.Places[index];
             trainStation.Places.RemoveAt(index);
+
             return train;                     
         }
-                
+
         private bool CheckFreeDepot(int index)
         {
             return Places[index] == null;

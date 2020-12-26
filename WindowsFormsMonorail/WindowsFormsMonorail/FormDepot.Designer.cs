@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PicBoxStation = new System.Windows.Forms.PictureBox();
+
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
@@ -65,6 +66,7 @@
             // 
             // groupBox1
             // 
+
             this.groupBox1.Controls.Add(this.pictureBoxTake);
             this.groupBox1.Controls.Add(this.Take);
             this.groupBox1.Controls.Add(this.MaskTexBoxTrainStation);
@@ -76,6 +78,7 @@
             this.groupBox1.Size = new System.Drawing.Size(543, 318);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
+
             this.groupBox1.Text = " Take Train";
             // 
             // pictureBoxTake
@@ -142,6 +145,7 @@
             this.buttonDelStation.TabIndex = 10;
             this.buttonDelStation.Text = "Delete Station";
             this.buttonDelStation.UseVisualStyleBackColor = true;
+
             this.buttonDelStation.Click += new System.EventHandler(this.buttonDelStation_Click);
             // 
             // label1
@@ -169,6 +173,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+
             this.Controls.Add(this.buttonSetMonorail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDelStation);
