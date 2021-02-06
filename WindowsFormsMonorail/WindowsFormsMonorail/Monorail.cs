@@ -9,7 +9,7 @@ using lab_1;
 
 namespace WindowsFormsMonorail
 {
-    public class Monorail : Locomotive
+    public class Monorail : Locomotive, IEquatable<Monorail>
     {
 
         public Monorail(int maxSpeed, float weight, Color bodycolor ,Color sidestrip, bool window, bool doors,bool railway):base( maxSpeed,  weight, bodycolor, sidestrip,  window, doors,railway)     
@@ -80,6 +80,64 @@ namespace WindowsFormsMonorail
         public void SetSubColor(Color color)
         {
             SideStrip = color;
+        }
+
+
+        public bool Equals(Monorail other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (BodyColor != other.BodyColor)
+            {
+                return false;
+            }
+            if (SideStrip != other.SideStrip)
+            {
+                return false;
+            }
+            if (Doors != other.Doors)
+            {
+                return false;
+            }
+            if (Window != other.Window)
+            {
+                return false;
+            }
+            if (Railway != other.Railway)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Monorail trainObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(trainObj);
+            }
         }
     }
 }

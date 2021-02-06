@@ -17,7 +17,7 @@ namespace lab_1
 
         DepotCollection stationCollection;
         private readonly Logger logger;
-        
+
         public FormDepot()
         {
             InitializeComponent();
@@ -59,6 +59,7 @@ namespace lab_1
         {
             if (ListBoxStation.SelectedIndex > -1 && MaskTexBoxTrainStation.Text != "")
             {
+
                 try
                 {
                     var train = stationCollection[ListBoxStation.SelectedItem.ToString()] - Convert.ToInt32(MaskTexBoxTrainStation.Text);
@@ -83,7 +84,7 @@ namespace lab_1
 
             }
         }
-        
+
         private void buttonDelStation_Click(object sender, EventArgs e)
         {
             if (ListBoxStation.SelectedIndex > -1)
@@ -113,6 +114,7 @@ namespace lab_1
 
         private void ListBoxStation_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             logger.Info($"Перешли в депо {ListBoxStation.SelectedItem.ToString()}");
             Draw();
         }
@@ -128,6 +130,7 @@ namespace lab_1
         {
             if (Train != null && ListBoxStation.SelectedIndex > -1)
             {
+
                 try
                 {
                     if ((stationCollection[ListBoxStation.SelectedItem.ToString()]) + Train)
@@ -148,11 +151,13 @@ namespace lab_1
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show("Машину не удалось поставить");
                     logger.Warn("Возникла неизвестная ошибка");
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -200,6 +205,16 @@ namespace lab_1
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                     logger.Warn("Возникла неизвестная ошибка при загрузке");
                 }
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if (ListBoxStation.SelectedIndex > -1)
+            {
+                stationCollection[ListBoxStation.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
             }
         }
     }

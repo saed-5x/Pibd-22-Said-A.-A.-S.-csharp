@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab_1
 {
-    public class Locomotive : Vehicle
+    public class Locomotive : Vehicle, IEquatable<Locomotive>
     {
         protected const int MonorailWidth = 400;
         protected const int MonorailHeight = 150;
@@ -144,6 +144,63 @@ namespace lab_1
         public override string ToString()
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{BodyColor.R},{BodyColor.G},{BodyColor.B}{separator}{ SideStrip.R},{SideStrip.G},{ SideStrip.B}{separator}{Window}{separator}{Doors}{separator}{Railway}";
+        }
+
+        public bool Equals(Locomotive other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (BodyColor != other.BodyColor)
+            {
+                return false;
+            }
+            if (SideStrip != other.SideStrip)
+            {
+                return false;
+            }
+            if (Doors != other.Doors)
+            {
+                return false;
+            }
+            if (Window != other.Window)
+            {
+                return false;
+            }
+            if (Railway != other.Railway)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Locomotive trainObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(trainObj);
+            }
         }
     }
 }

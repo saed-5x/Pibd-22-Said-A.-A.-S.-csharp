@@ -46,6 +46,7 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxStation)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
@@ -163,9 +164,9 @@
             // 
             // buttonSetMonorail
             // 
-            this.buttonSetMonorail.Location = new System.Drawing.Point(1349, 563);
+            this.buttonSetMonorail.Location = new System.Drawing.Point(1349, 634);
             this.buttonSetMonorail.Name = "buttonSetMonorail";
-            this.buttonSetMonorail.Size = new System.Drawing.Size(543, 141);
+            this.buttonSetMonorail.Size = new System.Drawing.Size(543, 70);
             this.buttonSetMonorail.TabIndex = 12;
             this.buttonSetMonorail.Text = "Add Train";
             this.buttonSetMonorail.UseVisualStyleBackColor = true;
@@ -194,14 +195,14 @@
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -209,11 +210,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // FormTrainStation
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(1350, 547);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(542, 69);
+            this.buttonSort.TabIndex = 14;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
+            // FormDepot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonSetMonorail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDelStation);
@@ -224,7 +236,7 @@
             this.Controls.Add(this.PicBoxStation);
             this.Controls.Add(this.MenuStrip);
             this.MainMenuStrip = this.MenuStrip;
-            this.Name = "FormTrainStation";
+            this.Name = "FormDepot";
             this.Text = "FormParking";
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxStation)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -257,5 +269,6 @@
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button buttonSort;
     }
 }
