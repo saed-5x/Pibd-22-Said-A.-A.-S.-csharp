@@ -52,6 +52,7 @@ namespace lab_1
             }
         }
 
+
         public void SaveData(string filename)
         {
             if (File.Exists(filename))
@@ -67,6 +68,7 @@ namespace lab_1
                     sw.WriteLine($"Station{separator}{level.Key}", sw);
 
                     ITransport train;
+
 
                     for (int i = 0; (train = level.Value.GetNext(i)) != null; i++)
                     {

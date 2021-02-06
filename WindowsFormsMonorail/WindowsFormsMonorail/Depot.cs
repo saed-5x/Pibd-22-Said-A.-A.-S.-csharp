@@ -17,6 +17,7 @@ namespace lab_1
         private readonly int DepotWidth = 669;
         private readonly int DepotHeight = 100;
 
+
         public Depot(int picWidth, int picHeight)
         {
             int width = picWidth / DepotWidth;
@@ -73,6 +74,7 @@ namespace lab_1
         private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
+
             for (int i = 0; i < PictureWidth / DepotWidth + 1; i++)
             {
                 for (int j = 0; j < PictureHeight / DepotHeight + 1; ++j)
@@ -93,4 +95,5 @@ namespace lab_1
         }
     }
 }
+
 

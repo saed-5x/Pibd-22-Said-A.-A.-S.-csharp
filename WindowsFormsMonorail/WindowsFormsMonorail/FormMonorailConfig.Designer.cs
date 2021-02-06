@@ -370,7 +370,7 @@
             this.ResumeLayout(false);
 
         }
-
+      
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label_Sub_Color;
         private System.Windows.Forms.Label label_Main_Color;
