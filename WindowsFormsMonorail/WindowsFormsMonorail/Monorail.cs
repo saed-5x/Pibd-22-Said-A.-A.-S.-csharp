@@ -11,6 +11,7 @@ namespace WindowsFormsMonorail
 {
     public class Monorail : Locomotive
     {
+
         public Monorail(int maxSpeed, float weight, Color bodycolor ,Color sidestrip, bool window, bool doors,bool railway):base( maxSpeed,  weight, bodycolor, sidestrip,  window, doors,railway)     
         {
             MaxSpeed = maxSpeed;
@@ -52,7 +53,7 @@ namespace WindowsFormsMonorail
             Brush monorail = new SolidBrush(BodyColor); 
             Brush window = new SolidBrush(Color.White);
             Brush strip = new SolidBrush(SideStrip);
-          
+            
             base.DrawMonorail(g);
             g.FillRectangle(wire, Xstart - 400 / resize, Ystart + 60 / resize, 600 / resize, 25 / resize);
             g.FillRectangle(monorail, Xstart - 30 / resize, Ystart, 180 / resize, 60 / resize);
@@ -82,3 +83,4 @@ namespace WindowsFormsMonorail
         }
     }
 }
+

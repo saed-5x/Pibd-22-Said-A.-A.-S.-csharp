@@ -11,8 +11,8 @@ namespace lab_1
     {
         protected const int MonorailWidth = 400;
         protected const int MonorailHeight = 150;
-        protected readonly char separator = ';';
 
+        protected readonly char separator = ';';
         public Locomotive(int maxSpeed, float weight, Color bodycolor, Color sidestrip, bool window, bool doors, bool railway)
         {
             MaxSpeed = maxSpeed;
@@ -46,28 +46,24 @@ namespace lab_1
             float step = MaxSpeed * 200 / Weight;
             switch (direction)
             {
-             
                 case Direction.Right:
                     if (Xstart + step < PicMonorsilWidth + MonorailWidth)
                     {
                         Xstart += step;
                     }
                     break;
-            
                 case Direction.Left:
                     if (Xstart - step > MonorailWidth)
                     {
                         Xstart -= step;
                     }
                     break;
-              
                 case Direction.Up:
                     if (Ystart - step > 0)
                     {
                         Ystart -= step;
                     }
                     break;
-               
                 case Direction.Down:
                     if (Ystart + step < PicMonorailHeight - MonorailHeight)
                     {
@@ -79,7 +75,7 @@ namespace lab_1
 
         public override void DrawMonorail(Graphics g)
         {
-         
+
             float resize = 1.1f;
             Pen pen = new Pen(Color.Black);
             Brush Locomotive = new SolidBrush(BodyColor);
@@ -144,10 +140,10 @@ namespace lab_1
                 g.FillRectangle(window, Xstart - (20 / resize), Ystart + (10 / resize), 40 / resize, 20 / resize);
             }
         }
+        
         public override string ToString()
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{BodyColor.R},{BodyColor.G},{BodyColor.B}{separator}{ SideStrip.R},{SideStrip.G},{ SideStrip.B}{separator}{Window}{separator}{Doors}{separator}{Railway}";
         }
     }
-    
 }

@@ -29,7 +29,6 @@ namespace lab_1
             panelWhite.MouseDown += panelColor_MouseDown;
             panelYellow.MouseDown += panelColor_MouseDown;
             panelBlue.MouseDown += panelColor_MouseDown;
-
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 

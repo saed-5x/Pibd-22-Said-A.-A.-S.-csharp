@@ -90,7 +90,7 @@
     <EmbeddedResource Include="FormMonorailConfig.resx">
       <DependentUpon>FormMonorailConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDepot.resx">
+     <EmbeddedResource Include="FormDepot.resx">
       <DependentUpon>FormDepot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
