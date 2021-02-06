@@ -9,6 +9,7 @@ namespace lab_1
 {
     public class Depot<T> where T : class, ITransport
     {
+
         private readonly List<T> Places;
         private readonly int MaxCount;
         private readonly int PictureWidth;
@@ -48,7 +49,6 @@ namespace lab_1
             }
             T train = trainStation.Places[index];
             trainStation.Places.RemoveAt(index);
-
             return train;                     
         }
 
@@ -64,8 +64,8 @@ namespace lab_1
             {
                 if (!CheckFreeDepot(i))
                 {
-                Places[i].SetPosition(5 + i / 10 * DepotWidth + 400, i % 10* DepotHeight + 10, PictureWidth, PictureHeight);
-                Places[i].DrawMonorail(g);
+                    Places[i].SetPosition(5 + i / 10 * DepotWidth + 400, i % 10* DepotHeight + 10, PictureWidth, PictureHeight);
+                    Places[i].DrawMonorail(g);
                 }
             }
         }
@@ -81,6 +81,15 @@ namespace lab_1
                 }
                 g.DrawLine(pen, i * DepotWidth, 0, i * DepotWidth, (PictureHeight / DepotHeight) * DepotHeight);
             }
+        }
+
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= Places.Count)
+            {
+                return null;
+            }
+            return Places[index];
         }
     }
  }

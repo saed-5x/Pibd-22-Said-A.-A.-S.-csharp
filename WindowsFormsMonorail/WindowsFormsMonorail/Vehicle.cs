@@ -27,9 +27,8 @@ namespace lab_1
         public abstract void MoveMonorail(Direction direction);
         public void SetMainColor(Color color)
         {            
-              BodyColor = color;
+             BodyColor = color;
         }
     }
 }
-
 

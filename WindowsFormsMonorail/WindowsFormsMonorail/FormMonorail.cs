@@ -14,10 +14,12 @@ namespace lab_1
     public partial class FormMonorail : Form
     {
         private ITransport monorail;
+        
         public FormMonorail()
         {
             InitializeComponent();
         }
+        
         private void Draw()
         {
             Bitmap bmp = new Bitmap(PicBoxMonorail.Width, PicBoxMonorail.Height);
@@ -29,8 +31,7 @@ namespace lab_1
         public void SetTrain(ITransport monorail)
         {
             this.monorail = monorail;
-            Draw();
-            
+            Draw();           
         }
 
         private void buttonMove_Click(object sender, EventArgs e)

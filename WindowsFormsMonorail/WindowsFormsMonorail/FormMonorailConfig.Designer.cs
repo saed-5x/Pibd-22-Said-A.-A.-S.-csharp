@@ -2,9 +2,7 @@
 {
     partial class FormMonorailConfig
     {
-
         private System.ComponentModel.IContainer components = null;
-
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -13,8 +11,6 @@
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -218,12 +214,12 @@
             this.groupBox4.Controls.Add(this.checkBoxWindows);
             this.groupBox4.Controls.Add(this.numericUpDownWeight);
             this.groupBox4.Controls.Add(this.numericUpDownMaxSpeed);
-            this.groupBox4.Location = new System.Drawing.Point(12, 308);
+            this.groupBox4.Location = new System.Drawing.Point(14, 308);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(941, 75);
+            this.groupBox4.Size = new System.Drawing.Size(894, 78);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Properties";
+            this.groupBox4.Text = "groupBox4";
             // 
             // label6
             // 
@@ -248,6 +244,8 @@
             // checkBoxRailway
             // 
             this.checkBoxRailway.AutoSize = true;
+            this.checkBoxRailway.Checked = true;
+            this.checkBoxRailway.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxRailway.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxRailway.Location = new System.Drawing.Point(701, 34);
             this.checkBoxRailway.Name = "checkBoxRailway";
@@ -259,6 +257,8 @@
             // checkBoxDoors
             // 
             this.checkBoxDoors.AutoSize = true;
+            this.checkBoxDoors.Checked = true;
+            this.checkBoxDoors.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxDoors.Location = new System.Drawing.Point(628, 34);
             this.checkBoxDoors.Name = "checkBoxDoors";
@@ -270,6 +270,8 @@
             // checkBoxWindows
             // 
             this.checkBoxWindows.AutoSize = true;
+            this.checkBoxWindows.Checked = true;
+            this.checkBoxWindows.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxWindows.Location = new System.Drawing.Point(529, 34);
             this.checkBoxWindows.Name = "checkBoxWindows";
@@ -305,7 +307,7 @@
             // 
             // button_Add_Train
             // 
-            this.button_Add_Train.Location = new System.Drawing.Point(970, 319);
+            this.button_Add_Train.Location = new System.Drawing.Point(948, 319);
             this.button_Add_Train.Name = "button_Add_Train";
             this.button_Add_Train.Size = new System.Drawing.Size(184, 54);
             this.button_Add_Train.TabIndex = 4;
@@ -315,7 +317,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(1166, 319);
+            this.buttonCancel.Location = new System.Drawing.Point(1144, 319);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(182, 55);
             this.buttonCancel.TabIndex = 5;
@@ -346,7 +348,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 392);
+            this.ClientSize = new System.Drawing.Size(1371, 390);
             this.Controls.Add(this.button_Add_Train);
             this.Controls.Add(this.panelMonorail);
             this.Controls.Add(this.buttonCancel);
@@ -370,7 +372,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label_Sub_Color;
         private System.Windows.Forms.Label label_Main_Color;

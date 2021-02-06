@@ -11,6 +11,8 @@ namespace lab_1
     {
         protected const int MonorailWidth = 400;
         protected const int MonorailHeight = 150;
+
+        protected readonly char separator = ';';
         public Locomotive(int maxSpeed, float weight, Color bodycolor, Color sidestrip, bool window, bool doors, bool railway)
         {
             MaxSpeed = maxSpeed;
@@ -21,6 +23,24 @@ namespace lab_1
             Window = window;
             Railway = railway;
         }
+
+        public Locomotive(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                string[] BodyColorRGB = strs[2].Split(',');
+                string[] SideStripRGB = strs[3].Split(',');
+                BodyColor = Color.FromArgb(255, Convert.ToInt32(BodyColorRGB[0]), Convert.ToInt32(BodyColorRGB[1]), Convert.ToInt32(BodyColorRGB[2]));
+                SideStrip = Color.FromArgb(255, Convert.ToInt32(SideStripRGB[0]), Convert.ToInt32(SideStripRGB[1]), Convert.ToInt32(SideStripRGB[2]));
+                Window = Convert.ToBoolean(strs[4]);
+                Doors = Convert.ToBoolean(strs[5]);
+                Railway = Convert.ToBoolean(strs[6]);
+            }
+        }
+
         public override void MoveMonorail(Direction direction)
         {
             float step = MaxSpeed * 200 / Weight;
@@ -55,10 +75,9 @@ namespace lab_1
 
         public override void DrawMonorail(Graphics g)
         {
-            Pen pen = new Pen(Color.Black);
 
             float resize = 1.1f;
-
+            Pen pen = new Pen(Color.Black);
             Brush Locomotive = new SolidBrush(BodyColor);
             Brush clip = new SolidBrush(Color.Orange);
             Brush window = new SolidBrush(Color.White);
@@ -121,6 +140,10 @@ namespace lab_1
                 g.FillRectangle(window, Xstart - (20 / resize), Ystart + (10 / resize), 40 / resize, 20 / resize);
             }
         }
+        
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{BodyColor.R},{BodyColor.G},{BodyColor.B}{separator}{ SideStrip.R},{SideStrip.G},{ SideStrip.B}{separator}{Window}{separator}{Doors}{separator}{Railway}";
+        }
     }
-
 }

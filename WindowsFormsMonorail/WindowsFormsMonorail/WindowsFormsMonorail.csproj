@@ -53,14 +53,12 @@
     <Compile Include="FormMonorail.Designer.cs">
       <DependentUpon>FormMonorail.cs</DependentUpon>
     </Compile>
-
     <Compile Include="FormMonorailConfig.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMonorailConfig.Designer.cs">
       <DependentUpon>FormMonorailConfig.cs</DependentUpon>
     </Compile>
-
     <Compile Include="FormDepot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,12 +76,10 @@
     <EmbeddedResource Include="FormMonorail.resx">
       <DependentUpon>FormMonorail.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="FormMonorailConfig.resx">
       <DependentUpon>FormMonorailConfig.cs</DependentUpon>
     </EmbeddedResource>
-
-    <EmbeddedResource Include="FormDepot.resx">
+     <EmbeddedResource Include="FormDepot.resx">
       <DependentUpon>FormDepot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

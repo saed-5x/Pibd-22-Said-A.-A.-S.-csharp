@@ -14,13 +14,15 @@ namespace lab_1
     public partial class FormDepot : Form
     {
 
-        private readonly DepotCollection stationCollection;
+        DepotCollection stationCollection;
+        
         public FormDepot()
         {
             InitializeComponent();
             stationCollection = new DepotCollection(PicBoxStation.Width, PicBoxStation.Height);
             Draw();
         }
+
         private void ReloadLevels()
         {
             int index = ListBoxStation.SelectedIndex;
@@ -51,13 +53,11 @@ namespace lab_1
             }
         }
 
-
         private void buttonTake_Click(object sender, EventArgs e)
         {
             if (ListBoxStation.SelectedIndex > -1 && MaskTexBoxTrainStation.Text != "")
             {
                 var train = stationCollection[ListBoxStation.SelectedItem.ToString()] - Convert.ToInt32(MaskTexBoxTrainStation.Text);
-
                 if (train != null)
                 {
                     FormMonorail form = new FormMonorail();
@@ -80,7 +80,6 @@ namespace lab_1
             }
         }
 
-
         private void buttonAddStation_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TextBoxStationName.Text))
@@ -96,25 +95,63 @@ namespace lab_1
         {
             Draw();
         }
-        
-        private void AddTrain(Vehicle train)
-        {   
-            if (train != null && ListBoxStation.SelectedIndex > -1)
+
+        private void buttonSetTrain_Click(object sender, EventArgs e)
+        {
+            var form = new FormMonorailConfig();
+            form.AddEvent(AddTrain);
+            form.Show();
+        }
+
+        private void AddTrain(Vehicle Train)
+        {
+            if (Train != null && ListBoxStation.SelectedIndex > -1)
             {
-                if ((stationCollection[ListBoxStation.SelectedItem.ToString()]) + train)
+                if ((stationCollection[ListBoxStation.SelectedItem.ToString()]) + Train)
                 {
                     Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
                 }
             }
         }
 
-        private void buttonSetTrain_Click(object sender, EventArgs e)
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var formTrainConfig = new FormMonorailConfig();
-            formTrainConfig.AddEvent(AddTrain);
-            formTrainConfig.Show();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (stationCollection.SaveData(saveFileDialog1.FileName))
+                {
+                    MessageBox.Show("Сохранение успешно завершено", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (stationCollection.LoadData(openFileDialog1.FileName))
+                {
+                    MessageBox.Show("Загрузка успешно завершена", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                    ReloadLevels();
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
-

@@ -11,6 +11,7 @@ namespace WindowsFormsMonorail
 {
     public class Monorail : Locomotive
     {
+   
         public Monorail(int maxSpeed, float weight, Color bodycolor, Color sidestrip, bool window, bool doors, bool railway) : base(maxSpeed, weight, bodycolor, sidestrip, window, doors, railway)
         {
             MaxSpeed = maxSpeed;
@@ -19,17 +20,40 @@ namespace WindowsFormsMonorail
             BodyColor = bodycolor;
             SideStrip = sidestrip;
             Doors = doors;
-            Railway = railway;
+            Railway = railway;   
         }
+
+        public Monorail(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                string[] BodyColorRGB = strs[2].Split(',');
+                base.BodyColor = Color.FromArgb(255, Convert.ToInt32(BodyColorRGB[0]), Convert.ToInt32(BodyColorRGB[1]), Convert.ToInt32(BodyColorRGB[2]));
+                string[] SideStripColorRGB = strs[3].Split(',');
+                SideStrip = Color.FromArgb(255, Convert.ToInt32(SideStripColorRGB[0]), Convert.ToInt32(SideStripColorRGB[1]), Convert.ToInt32(SideStripColorRGB[2]));
+                Window = Convert.ToBoolean(strs[4]);
+                Doors = Convert.ToBoolean(strs[5]);
+                Railway = Convert.ToBoolean(strs[6]);
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}";
+        }
+
         public override void DrawMonorail(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
-            Brush wire = new SolidBrush(Color.Black);
-            Brush monorail = new SolidBrush(BodyColor);
+            float resize = 1.1f; 
+            Brush wire = new SolidBrush(Color.Black);                    
+            Brush monorail = new SolidBrush(BodyColor); 
             Brush window = new SolidBrush(Color.White);
             Brush strip = new SolidBrush(SideStrip);
-
-            float resize = 1.1f;
+            
             base.DrawMonorail(g);
             g.FillRectangle(wire, Xstart - 400 / resize, Ystart + 60 / resize, 600 / resize, 25 / resize);
             g.FillRectangle(monorail, Xstart - 30 / resize, Ystart, 180 / resize, 60 / resize);

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.PicBoxStation = new System.Windows.Forms.PictureBox();
-
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxTake = new System.Windows.Forms.PictureBox();
@@ -41,16 +40,23 @@
             this.buttonDelStation = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSetMonorail = new System.Windows.Forms.Button();
+            this.MenuStrip = new System.Windows.Forms.MenuStrip();
+            this.Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxStation)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).BeginInit();
+            this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicBoxStation
             // 
-            this.PicBoxStation.Location = new System.Drawing.Point(4, 2);
+            this.PicBoxStation.Location = new System.Drawing.Point(4, 27);
             this.PicBoxStation.Name = "PicBoxStation";
-            this.PicBoxStation.Size = new System.Drawing.Size(1339, 1027);
+            this.PicBoxStation.Size = new System.Drawing.Size(1339, 1002);
             this.PicBoxStation.TabIndex = 0;
             this.PicBoxStation.TabStop = false;
             // 
@@ -66,7 +72,6 @@
             // 
             // groupBox1
             // 
-
             this.groupBox1.Controls.Add(this.pictureBoxTake);
             this.groupBox1.Controls.Add(this.Take);
             this.groupBox1.Controls.Add(this.MaskTexBoxTrainStation);
@@ -78,7 +83,6 @@
             this.groupBox1.Size = new System.Drawing.Size(543, 318);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-
             this.groupBox1.Text = " Take Train";
             // 
             // pictureBoxTake
@@ -145,7 +149,6 @@
             this.buttonDelStation.TabIndex = 10;
             this.buttonDelStation.Text = "Delete Station";
             this.buttonDelStation.UseVisualStyleBackColor = true;
-
             this.buttonDelStation.Click += new System.EventHandler(this.buttonDelStation_Click);
             // 
             // label1
@@ -168,12 +171,49 @@
             this.buttonSetMonorail.UseVisualStyleBackColor = true;
             this.buttonSetMonorail.Click += new System.EventHandler(this.buttonSetTrain_Click);
             // 
+            // MenuStrip
+            // 
+            this.MenuStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menu});
+            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(1904, 24);
+            this.MenuStrip.TabIndex = 13;
+            this.MenuStrip.Text = "menuStrip1";
+            // 
+            // Menu
+            // 
+            this.Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem1,
+            this.loadToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(50, 20);
+            this.Menu.Text = "Menu";
+            // 
+            // saveToolStripMenuItem1
+            // 
+            this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem1.Text = "Save";
+            this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FormTrainStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-
             this.Controls.Add(this.buttonSetMonorail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDelStation);
@@ -182,12 +222,16 @@
             this.Controls.Add(this.buttonAddStation);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PicBoxStation);
+            this.Controls.Add(this.MenuStrip);
+            this.MainMenuStrip = this.MenuStrip;
             this.Name = "FormTrainStation";
             this.Text = "FormParking";
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxStation)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTake)).EndInit();
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +251,11 @@
         private System.Windows.Forms.Button buttonDelStation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSetMonorail;
+        private System.Windows.Forms.MenuStrip MenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem Menu;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

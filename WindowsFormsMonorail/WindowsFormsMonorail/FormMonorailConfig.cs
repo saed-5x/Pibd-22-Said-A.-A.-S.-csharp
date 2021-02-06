@@ -16,7 +16,6 @@ namespace lab_1
     {
 
         private event Action<Vehicle> eventAddTrain;
-
         Vehicle train = null;
 
         public FormMonorailConfig()
@@ -54,7 +53,7 @@ namespace lab_1
         {
             if (eventAddTrain == null)
             {
-                eventAddTrain = ev;
+                eventAddTrain =  ev;
             }
             else
             {
@@ -87,11 +86,11 @@ namespace lab_1
         {
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
-                case "Locomotive":            
+                case "Locomotive":                
                     train = new Locomotive((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Yellow, Color.DarkGreen, checkBoxWindows.Checked, checkBoxDoors.Checked,checkBoxRailway.Checked);
                     break;
                 case "Monorail":
-                    train = new Monorail((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Yellow, Color.DarkGreen,
+                    train = new Monorail((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value,  Color.Yellow, Color.DarkGreen,
                     checkBoxWindows.Checked, checkBoxDoors.Checked,checkBoxRailway.Checked);
                     break;
             }
