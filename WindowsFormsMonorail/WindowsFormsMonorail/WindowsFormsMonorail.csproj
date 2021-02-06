@@ -81,8 +81,10 @@
     <Compile Include="Monorail.cs" />
     <Compile Include="DepotCollection.cs" />
     <Compile Include="Depot.cs" />
+    <Compile Include="ParkingAlreadyHaveException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrainComparer.cs" />
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormMonorail.resx">
       <DependentUpon>FormMonorail.cs</DependentUpon>

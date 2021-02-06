@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lab_1
 {
-    public class Depot<T> where T : class, ITransport
+    public class Depot<T> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport
     {
 
         private readonly List<T> Places;
@@ -16,6 +17,11 @@ namespace lab_1
         private readonly int PictureHeight;
         private readonly int DepotWidth = 669;
         private readonly int DepotHeight = 100;
+
+        private int currentIndex;
+        public T Current => Places[currentIndex];
+        object IEnumerator.Current => Places[currentIndex];
+
         public Depot(int picWidth, int picHeight)
         {
             int width = picWidth / DepotWidth;
@@ -28,24 +34,31 @@ namespace lab_1
             {
                 Places[i] = null;
             }
+
         }
 
         public static bool operator +(Depot<T> p, T train)
         {
             if (p.Places.Count >= p.MaxCount)
+            {
                 throw new DepotOverflowException();
+            }
+                
+            if (p.Places.Contains(train))
+            {
+                throw new DepotAlreadyHaveException();
 
+            }
+           
             p.Places.Add(train);
             return true;
-        }
+        }     
 
         public static T operator -(Depot<T> p, int index)
         {
             if (index < 0 || index >= p.Places.Count)
-            {
                 throw new DepotNotFoundException(index);
-            }
-            
+
             T train = p.Places[index];
             p.Places.RemoveAt(index);
             return train;
@@ -89,6 +102,41 @@ namespace lab_1
                 return null;
             }
             return Places[index];
+        }
+
+        public void Sort() => Places.Sort((IComparer<T>)new TrainComparer());
+
+        public void Dispose() { }
+
+        public bool MoveNext()
+        {
+            if (currentIndex + 1 >= Places.Count)
+            {
+                currentIndex = -1;
+                return false;
+            }
+            currentIndex++;
+            return true;
+        }
+
+        public void Reset()
+        {
+            currentIndex = -1;
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            return this;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }

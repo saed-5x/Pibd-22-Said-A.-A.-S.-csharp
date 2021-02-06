@@ -130,7 +130,6 @@ namespace lab_1
             if (Train != null && ListBoxStation.SelectedIndex > -1)
             {
 
-
                 try
                 {
                     if ((stationCollection[ListBoxStation.SelectedItem.ToString()]) + Train)
@@ -151,6 +150,7 @@ namespace lab_1
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show("Машину не удалось поставить");
                     logger.Warn("Возникла неизвестная ошибка");
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -204,6 +204,16 @@ namespace lab_1
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                     logger.Warn("Возникла неизвестная ошибка при загрузке");
                 }
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if (ListBoxStation.SelectedIndex > -1)
+            {
+                stationCollection[ListBoxStation.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
             }
         }
     }
