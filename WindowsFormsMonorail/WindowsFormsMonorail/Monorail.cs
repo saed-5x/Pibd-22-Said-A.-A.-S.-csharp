@@ -11,8 +11,8 @@ namespace WindowsFormsMonorail
 {
     public class Monorail : Locomotive
     {
-   
-        public Monorail(int maxSpeed, float weight, Color bodycolor, Color sidestrip, bool window, bool doors, bool railway) : base(maxSpeed, weight, bodycolor, sidestrip, window, doors, railway)
+
+        public Monorail(int maxSpeed, float weight, Color bodycolor ,Color sidestrip, bool window, bool doors,bool railway):base( maxSpeed,  weight, bodycolor, sidestrip,  window, doors,railway)     
         {
             MaxSpeed = maxSpeed;
             Weight = weight;

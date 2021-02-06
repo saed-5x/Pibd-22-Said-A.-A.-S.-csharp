@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,13 @@ namespace lab_1
     {
 
         DepotCollection stationCollection;
+        private readonly Logger logger;
         
         public FormDepot()
         {
             InitializeComponent();
             stationCollection = new DepotCollection(PicBoxStation.Width, PicBoxStation.Height);
-            Draw();
+            logger = LogManager.GetCurrentClassLogger();
         }
 
         private void ReloadLevels()
@@ -57,24 +59,39 @@ namespace lab_1
         {
             if (ListBoxStation.SelectedIndex > -1 && MaskTexBoxTrainStation.Text != "")
             {
-                var train = stationCollection[ListBoxStation.SelectedItem.ToString()] - Convert.ToInt32(MaskTexBoxTrainStation.Text);
-                if (train != null)
+                try
                 {
-                    FormMonorail form = new FormMonorail();
-                    form.SetTrain(train);
-                    form.ShowDialog();
+                    var train = stationCollection[ListBoxStation.SelectedItem.ToString()] - Convert.ToInt32(MaskTexBoxTrainStation.Text);
+                    if (train != null)
+                    {
+                        FormMonorail form = new FormMonorail();
+                        form.SetTrain(train);
+                        form.ShowDialog();
+                        Draw();
+                    }
                 }
-                Draw();
+                catch (DepotNotFoundException ex)
+                {
+                    logger.Warn($"Поезд по месту {MaskTexBoxTrainStation.Text} не найден");
+                    MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Warn("Возникла неизвестная ошибка");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
-
+        
         private void buttonDelStation_Click(object sender, EventArgs e)
         {
             if (ListBoxStation.SelectedIndex > -1)
             {
-                if (MessageBox.Show($"Удалить парковку {ListBoxStation.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show($"Удалить депо {ListBoxStation.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    stationCollection.DelParking(TextBoxStationName.Text);
+                    logger.Info($"Удалили депо {ListBoxStation.SelectedItem.ToString()}");
+                    stationCollection.DelParking(ListBoxStation.SelectedItem.ToString());
                     ReloadLevels();
                 }
             }
@@ -84,15 +101,19 @@ namespace lab_1
         {
             if (string.IsNullOrEmpty(TextBoxStationName.Text))
             {
-                MessageBox.Show("Введите название парковки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger.Warn("При добавлении депо отсутствовало название");
+                MessageBox.Show("Введите название депо", "Ошибка",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            logger.Info($"Добавили депо {TextBoxStationName.Text}");
             stationCollection.AddParking(TextBoxStationName.Text);
             ReloadLevels();
         }
 
         private void ListBoxStation_SelectedIndexChanged(object sender, EventArgs e)
         {
+            logger.Info($"Перешли в депо {ListBoxStation.SelectedItem.ToString()}");
             Draw();
         }
 
@@ -107,30 +128,49 @@ namespace lab_1
         {
             if (Train != null && ListBoxStation.SelectedIndex > -1)
             {
-                if ((stationCollection[ListBoxStation.SelectedItem.ToString()]) + Train)
+                try
                 {
-                    Draw();
+                    if ((stationCollection[ListBoxStation.SelectedItem.ToString()]) + Train)
+                    {
+                        Draw();
+                        logger.Info($"Добавлен поезд {Train}");
+                    }
+                    else
+                    {
+                        logger.Warn("Поезд не удалось добавить в депо");
+                        MessageBox.Show("Поезд не удалось поставить");
+                    }
                 }
-                else
+                catch (DepotOverflowException ex)
                 {
-                    MessageBox.Show("Машину не удалось поставить");
+                    logger.Warn("Произошло переполнение депо");
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Warn("Возникла неизвестная ошибка");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if (stationCollection.SaveData(saveFileDialog1.FileName))
+                try
                 {
+                    stationCollection.SaveData(saveFileDialog1.FileName);
                     MessageBox.Show("Сохранение успешно завершено", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog1.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат",
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Возникла неизвестная ошибка при сохранении");
                 }
             }
         }
@@ -139,17 +179,26 @@ namespace lab_1
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if (stationCollection.LoadData(openFileDialog1.FileName))
+                try
                 {
+                    stationCollection.LoadData(openFileDialog1.FileName);
                     MessageBox.Show("Загрузка успешно завершена", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialog1.FileName);
                     ReloadLevels();
                     Draw();
                 }
-                else
+                catch (DepotOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
+                    logger.Warn("Не удалось загрузить поезд в депо");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Возникла неизвестная ошибка при загрузке");
                 }
             }
         }
