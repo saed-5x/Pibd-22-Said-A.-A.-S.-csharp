@@ -25,8 +25,8 @@ namespace lab_1
 
         public void AddParking(string name)
         {
-            
-        if (StationStages.ContainsKey(name))
+
+            if (StationStages.ContainsKey(name))
             {
                 return;
             }
@@ -53,7 +53,7 @@ namespace lab_1
             }
         }
 
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -69,7 +69,7 @@ namespace lab_1
 
                     ITransport train;
 
-                   for (int i = 0; (train = level.Value.GetNext(i)) != null; i++)
+                    for (int i = 0; (train = level.Value.GetNext(i)) != null; i++)
                     {
                         if (train != null)
                         {
@@ -86,14 +86,13 @@ namespace lab_1
                     }
                 }
             }
-            return true;
         }
 
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
 
             using (StreamReader sr = new StreamReader(filename))
@@ -107,7 +106,7 @@ namespace lab_1
                     }
                     else
                     {
-                        return false;
+                        throw new FileLoadException("Неверный формат файла");
                     }
 
                     Vehicle train = null;
@@ -132,17 +131,16 @@ namespace lab_1
                         }
                         else if (line.Split(separator)[0] == "Monorail")
                         {
-                           train = new Monorail(line.Split(separator)[1]);
+                            train = new Monorail(line.Split(separator)[1]);
                         }
 
                         var result = StationStages[key] + train;
                         if (!result)
                         {
-                            return false;
+                            throw new DepotOccupiedPlaceException();
                         }
                     }
                 }
-                return true;
             }
         }
     }
