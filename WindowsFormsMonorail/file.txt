@@ -1,0 +1,28 @@
+2021-02-06 06:16:31.9212|INFO|lab_1.FormDepot|Загружено из файла C:\Users\Saedx\Documents\List
+2021-02-06 06:16:32.0211|INFO|lab_1.FormDepot|Перешли в депо 1
+2021-02-06 06:16:37.6710|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:16:41.7877|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:16:45.7894|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:16:50.2461|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:17:14.4852|INFO|lab_1.FormDepot|Сохранено в файл C:\Users\Saedx\Documents\List.txt
+2021-02-06 06:41:05.8959|INFO|lab_1.FormDepot|Добавили депо 1
+2021-02-06 06:41:05.9400|INFO|lab_1.FormDepot|Перешли в депо 1
+2021-02-06 06:41:37.3467|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:42:30.9218|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;False;False;False
+2021-02-06 06:42:44.1809|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;False;True
+2021-02-06 06:43:09.7316|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:44:39.8723|INFO|lab_1.FormDepot|Добавили депо 1
+2021-02-06 06:44:39.9613|INFO|lab_1.FormDepot|Перешли в депо 1
+2021-02-06 06:44:49.7357|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 06:44:55.6828|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;False;True
+2021-02-06 06:45:29.8991|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;False;False;True
+2021-02-06 06:45:44.8732|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;False;True;False
+2021-02-06 07:01:51.1483|INFO|lab_1.FormDepot|Добавили депо list_1
+2021-02-06 07:01:51.2186|INFO|lab_1.FormDepot|Перешли в депо list_1
+2021-02-06 07:01:57.8577|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,255,0;0,100,0;True;True;True
+2021-02-06 07:02:17.9682|INFO|lab_1.FormDepot|Добавлен поезд 100;100;255,0,0;0,100,0;True;True;True
+2021-02-06 07:02:29.2734|INFO|lab_1.FormDepot|Добавлен поезд 100;100;0,0,255;0,100,0;True;True;True
+2021-02-06 07:02:36.2566|INFO|lab_1.FormDepot|Добавлен поезд 100;100;0,128,0;0,100,0;True;True;True
+2021-02-06 07:02:58.1892|INFO|lab_1.FormDepot|Сохранено в файл C:\Users\Saedx\Documents\List.txt
+2021-02-06 07:03:23.2514|INFO|lab_1.FormDepot|Загружено из файла C:\Users\Saedx\Documents\List.txt
+2021-02-06 07:03:23.2705|INFO|lab_1.FormDepot|Перешли в депо list_1
