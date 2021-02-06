@@ -85,7 +85,6 @@ namespace lab_1
             }
         }
 
-
         private void buttonDelStation_Click(object sender, EventArgs e)
         {
             if (ListBoxStation.SelectedIndex > -1)

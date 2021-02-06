@@ -48,7 +48,6 @@ namespace lab_1
                 throw new DepotAlreadyHaveException();
 
             }
-           
             p.Places.Add(train);
             return true;
         }     
@@ -57,7 +56,7 @@ namespace lab_1
         {
             if (index < 0 || index >= p.Places.Count)
                 throw new DepotNotFoundException(index);
-
+                
             T train = p.Places[index];
             p.Places.RemoveAt(index);
             return train;
@@ -139,4 +138,5 @@ namespace lab_1
         }
     }
 }
+
 
