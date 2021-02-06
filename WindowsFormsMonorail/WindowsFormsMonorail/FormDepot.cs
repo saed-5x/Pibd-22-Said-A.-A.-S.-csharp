@@ -15,7 +15,7 @@ namespace lab_1
     {
 
         DepotCollection stationCollection;
-
+        
         public FormDepot()
         {
             InitializeComponent();
@@ -43,6 +43,7 @@ namespace lab_1
 
         private void Draw()
         {
+
             if (ListBoxStation.SelectedIndex > -1)
             {
                 Bitmap bmp = new Bitmap(PicBoxStation.Width, PicBoxStation.Height);

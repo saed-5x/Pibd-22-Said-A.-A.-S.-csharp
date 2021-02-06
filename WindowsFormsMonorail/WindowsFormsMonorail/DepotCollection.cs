@@ -25,7 +25,6 @@ namespace lab_1
 
         public void AddParking(string name)
         {
-            
         if (StationStages.ContainsKey(name))
             {
                 return;
@@ -147,4 +146,3 @@ namespace lab_1
         }
     }
 }
-

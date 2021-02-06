@@ -16,6 +16,7 @@ namespace lab_1
         private readonly int PictureHeight;
         private readonly int DepotWidth = 669;
         private readonly int DepotHeight = 100;
+
         public Depot( int picWidth, int picHeight)
         {
                 int width = picWidth/ DepotWidth;
@@ -50,7 +51,7 @@ namespace lab_1
             trainStation.Places.RemoveAt(index);
             return train;                     
         }
-  
+
         private bool CheckFreeDepot(int index)
         {
             return Places[index] == null;
